@@ -5,7 +5,7 @@ const log = require('./src/functions/log.js');
 //Initialize vars ----------------------------------------
 var slimeReplies = [
   "*reacts in excitement to the conversation*", 
-  "*notices the conversation and hides the gun inside inside the slimy goo*",
+  "*notices the conversation and hides the gun inside the slimy goo*",
   "*scratches itself*",
   "*whispers:* psst... don't tell Rob I'm here!"
 ]
@@ -36,8 +36,8 @@ client.on('message', (message) => {
       message.channel.send('*runs away*');
     } else {
       //make it so the bot doesn't always react to the message
-      let i = Math.floor(Math.random()*slimeReplies.length) + Math.floor(Math.random()*slimeReplies.length);
-      if (i <= slimeReplies.length){
+      let i = Math.floor(Math.random()*slimeReplies.length);
+      if (slimeReplies.length % 2 == 0){
         let slimeReply = slimeReplies[i];
         console.log(i);
         message.channel.send(slimeReply);
