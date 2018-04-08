@@ -2,7 +2,7 @@
 const config = require('./bot-config.json');
 const log = require('./src/functions/log.js');
 
-//Initialize vars ----------------------------------------
+//Initialize gooey replies ----------------------------------------
 var slimeReplies = [
   "*reacts in excitement to the conversation*", 
   "*notices the conversation and hides the gun inside the slimy goo*",
@@ -15,7 +15,6 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 client.on('ready', () => {
-  initializeEmojis();
   client.user.setActivity('Slime Rancher Rancher');
   log('I am ready!');
 });
