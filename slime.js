@@ -8,12 +8,7 @@ var slimeReplies = [
   "*notices the conversation and hides the gun inside the slimy goo*",
   "*scratches itself*",
   "*whispers:* psst... don't tell Rob I'm here!"
-]
-
-//var dittoblock = null;
-var initializeEmojis = function() {
-  //dittoblock = client.emojis.find("name", "dittoblock");
-};
+];
 
 //Discord Section -----------------------------------------
 const Discord = require('discord.js');
@@ -21,25 +16,20 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
   initializeEmojis();
-  client.user.setActivity('Slime Rancher');
+  client.user.setActivity('Slime Rancher Rancher');
   log('I am ready!');
 });
 
 client.on('message', (message) => {
   if (message.author.bot) {return;}
 
-  const msg = message.content.split(" ");
-  const cmd = msg[0];
-
   if (message.content.toString().toLowerCase().includes('slime')) {
     if (message.author.id == 230724684746850309){ //run away from Robin
       message.channel.send('*runs away*');
     } else {
-      //make it so the bot doesn't always react to the message
-      let i = Math.floor(Math.random()*slimeReplies.length);
-      if (slimeReplies.length % 2 == 0){
+      if (Math.floor(Math.random() * 2) % 2 == 0){ // Make it so the bot won't always trigger a response
+        let i = Math.floor(Math.random()*slimeReplies.length);
         let slimeReply = slimeReplies[i];
-        console.log(i);
         message.channel.send(slimeReply);
       }
     }
